@@ -3,6 +3,24 @@ import { StyleSheet, Text, View, ScrollView, TouchableOpacity, Image } from 'rea
 
 const Tasks = () => {
 
+  function readTextFile(file) {
+    
+    var rawFile = new XMLHttpRequest();
+    rawFile.open("GET", file, false);
+    rawFile.onreadystatechange = function ()
+    {
+        if(rawFile.readyState === 4)
+        {
+            if(rawFile.status === 200 || rawFile.status == 0)
+            {
+                var allText = rawFile.responseText;
+                alert(allText);
+            }
+        }
+    }
+    rawFile.send(null);
+  }
+
     return(
       <View style={styles.container}>
         <View style={styles.header}>
