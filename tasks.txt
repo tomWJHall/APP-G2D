@@ -1,3 +1,3 @@
 [001, "Update Website frontend", "12/12/2022", "Tom", "SENT"]
 [002, "Check advancement of the database", "25/12/2022", "Bastien", "SEEN"]
-[003, "Update design for the login page", "Arno", "01/12/2022", "DONE"]
+[003, "Update design for the login page", "01/12/2022", "Arno", "DONE"]
