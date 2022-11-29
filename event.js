@@ -3,10 +3,10 @@ import { StyleSheet, Text, View, ScrollView, TouchableOpacity, Image, Touchable,
 
 const Event = (props) => {
   return(
-    <View style={styles.container}>
+    <View style={[styles.container, (props.taskOrNot) ? {backgroundColor: 'red'} : {backgroundColor: '#55f'}]}>
       <View style={styles.header}>
         <View style={styles.titleView}><Text style={styles.title}>{props.title}</Text></View>
-        <View style={styles.dateView}><Text style={styles.date}>Deadline:   {props.date.substring(0, 2)}/{props.date.substring(2, 4)}/{props.date.substring(4, 8)}</Text></View>
+        <View style={styles.dateView}><Text style={styles.date}>{(props.taskOrNot) ? "Deadline:" : "Date:"}   {props.date.substring(0, 2)}/{props.date.substring(2, 4)}/{props.date.substring(4, 8)}</Text></View>
       </View>
     </View>
   );
@@ -15,7 +15,6 @@ const Event = (props) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#55f',
     alignItems: 'center',
     width: '100%',
     height: '100%',
