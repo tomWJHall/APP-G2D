@@ -1,5 +1,5 @@
 import React, { Component, useState } from 'react';
-import { StyleSheet, Text, View, ScrollView, TouchableOpacity, Image } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, TouchableOpacity, Image, TextInput } from 'react-native';
 
 const Dash = () => {
 
@@ -10,9 +10,24 @@ const Dash = () => {
         <Text style={styles.subtitle}>Dashboard</Text>
       </View>
 
-      <ScrollView style={styles.mainView}>
-        
-      </ScrollView>
+      <View style={styles.mainView}>
+        <View style={styles.mainCard}>
+          <Text style={styles.cardTitle}>Create this Week's Dashboard</Text>
+          <TextInput></TextInput>
+          <Text>Animator:</Text>
+          <TextInput></TextInput>
+          <Text>Scribe:</Text>
+          <TextInput></TextInput>
+          <Text>Referee:</Text>
+          <TextInput></TextInput>
+          <View>
+            <Text>Main Points of the Week</Text>
+            <TextInput></TextInput>
+          </View>
+          <Text>Next Week</Text>
+          <TextInput></TextInput>
+        </View>
+      </View>
 
     </View>
   );
@@ -55,6 +70,22 @@ const styles = StyleSheet.create({
   mainView:{
     height: '73%',
     width: '100%',
+    justifyContent: "center",
+    alignItems: 'center',
+  },
+  mainCard: {
+    width: "90%",
+    borderRadius: "20px",
+    backgroundColor: "#5c8",
+    justifyContent: 'space-between',
+    padding: '5%',
+    color: "white",
+  },
+  cardTitle: {
+    color: 'white',
+    fontSize: '20px',
+    justifyContent: 'center',
+    textAlign: 'center',
   },
 });
 
