@@ -42,8 +42,7 @@ const Tasks = () => {
             <View key={taskList.slice(0,-1).indexOf(task)} style={[styles.tasksCards, {backgroundColor: (task[4].substring(2, task[4].length - 2) === "DONE") ? "green" : "red"}]}>
               <Text style={styles.taskTitle}>{task[1].substring(2, task[1].length - 1)}</Text>
               <Text style={styles.date}>{task[2].substring(2, task[2].length - 1)}</Text>
-              <Text style={styles.name}>{task[3].substring(2, task[3].length - 1)}</Text>
-              <Text style={styles.taskProgress}>{task[4].substring(2, task[4].length - 2)}</Text>
+              <Text style={styles.name}>{task[3].substring(2, task[3].length - 2)}</Text>
             </View>
             )
           }
