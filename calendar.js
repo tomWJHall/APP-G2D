@@ -17,15 +17,15 @@ const Calendar = () => {
     }
 
     if (request.status === 200) {
-      updateAnswer(answer = JSON.parse(JSON.stringify(request.responseText)));
+      updateAnswer(answer = request.responseText);
     }
   };
   
   
-  var eventList = answer.split("\n");
+  var eventList = answer.split('\n');
 
   for (let i = 0; i < eventList.length; i++) {
-    eventList[i] = eventList[i].split(",");
+    eventList[i] = eventList[i].split(", ");
   }
 
   var calendarEvent = eventList;
@@ -43,7 +43,8 @@ const Calendar = () => {
 
       <View style={styles.mainView}>
         <ScrollView style={styles.mainScrollView}>
-          {calendarEvent.map((event) => <Event taskOrNot={calendarEvent[calendarEvent.indexOf(event)][2]} key={calendarEvent.indexOf(event)} title={calendarEvent[calendarEvent.indexOf(event)][0]} date={calendarEvent[calendarEvent.indexOf(event)][1]}/>)}
+          {/*calendarEvent.map((event) => <Event taskOrNot={calendarEvent[calendarEvent.indexOf(event)][2]} key={calendarEvent.indexOf(event)} title={calendarEvent[calendarEvent.indexOf(event)][0]} date={calendarEvent[calendarEvent.indexOf(event)][1]}/>)*/}
+          <Text>{eventList}</Text>
         </ScrollView>
       </View>
 
