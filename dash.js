@@ -4,30 +4,36 @@ import { StyleSheet, Text, View, ScrollView, TouchableOpacity, Image, TextInput 
 const Dash = () => {
 
   return(
-    <View style={styles.container}>
+    <View style={styles.container} keyboardShouldPersistTaps='handled'>
       <View style={styles.header}>
         <Text style={styles.title}>APP - G2D</Text>
         <Text style={styles.subtitle}>Dashboard</Text>
       </View>
 
-      <View style={styles.mainView}>
+      <ScrollView style={styles.mainView}>
         <View style={styles.mainCard}>
           <Text style={styles.cardTitle}>Create this Week's Dashboard</Text>
-          <TextInput></TextInput>
-          <Text>Animator:</Text>
-          <TextInput></TextInput>
-          <Text>Scribe:</Text>
-          <TextInput></TextInput>
-          <Text>Referee:</Text>
-          <TextInput></TextInput>
-          <View>
-            <Text>Main Points of the Week</Text>
-            <TextInput></TextInput>
+          <View style={styles.inputBlocks}>
+            <Text>Animator:</Text>
+            <TextInput style={styles.roleInput} placeholder="Type name"></TextInput>
           </View>
+          <View style={styles.inputBlocks}>
+            <Text>Scribe:</Text>
+            <TextInput style={styles.roleInput} placeholder="Type name"></TextInput>
+          </View>
+          <View style={styles.inputBlocks}>
+            <Text>Referee:</Text>
+            <TextInput style={styles.roleInput} placeholder="Type name"></TextInput>
+          </View>
+          <Text>Main Points of the Week</Text>
+          <TextInput style={styles.weekInput} keyboardType="default"></TextInput>
           <Text>Next Week</Text>
-          <TextInput></TextInput>
+          <TextInput style={styles.weekInput}></TextInput>
+          <TouchableOpacity style={styles.submit}><Text style={styles.submitText}>Generate Dashboard</Text></TouchableOpacity>
         </View>
-      </View>
+
+        <View style={{height: '100%', width: '100%'}}></View>
+      </ScrollView>
 
     </View>
   );
@@ -68,23 +74,74 @@ const styles = StyleSheet.create({
     fontFamily: 'Times New Roman',
   },
   mainView:{
-    height: '73%',
     width: '100%',
-    justifyContent: "center",
-    alignItems: 'center',
+    paddingLeft: "5%",
+    paddingRight: "5%",
+    contentInset: {
+      bottom: "100%",
+    }
   },
   mainCard: {
-    width: "90%",
+    height: "90%",
     borderRadius: "20px",
-    backgroundColor: "#5c8",
+    backgroundColor: "#88f",
     justifyContent: 'space-between',
     padding: '5%',
+    paddingBottom: "20%",
     color: "white",
+    shadowColor: "#222",
+    shadowOffset: {
+      width: "2px",
+      height: "2px",
+    },
+    shadowOpacity: '100%',
+    shadowRadius: "2%",
+    marginTop: '10%',
+    marginBottom: "20%",
   },
   cardTitle: {
     color: 'white',
     fontSize: '20px',
+    marginBottom: "5%",
     justifyContent: 'center',
+    textAlign: 'center',
+  },
+  inputBlocks: {
+    display: "flex",
+    flexDirection: 'row',
+    justifyContent: "space-between",
+    width: "100%",
+    marginBottom: "2%",
+  },
+  roleInput: {
+    height: '70%',
+    width: "60%",
+    backgroundColor: 'white',
+    padding: "2%",
+    borderRadius: "20%",
+  },
+  weekInput: {
+    margin: "2%",
+    width: "100%",
+    height: "20%",
+    backgroundColor: 'white',
+    borderRadius: "4%",
+    padding: "2%",
+    fontSize: "12px",
+    textAlign: "justify",
+  },
+  submit: {
+    alignSelf: 'center',
+    backgroundColor: "#af2",
+    borderRadius: "5px",
+    padding: "2%",
+    width: "75%",
+    marginTop: "5%",
+    marginBottom: '5%',
+    },
+  submitText: {
+    padding: "2%",
+    justifyContent: "center",
     textAlign: 'center',
   },
 });

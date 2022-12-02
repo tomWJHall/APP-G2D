@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, ScrollView, TouchableOpacity, Image, Touchable,
 
 const Event = (props) => {
   return(
-    <View style={[styles.container, (props.taskOrNot) ? {backgroundColor: 'red'} : {backgroundColor: '#55f'}]}>
+    <View style={[styles.container, (props.taskOrNot) ? {backgroundColor: '#e58'} : {backgroundColor: '#55f'}]}>
       <View style={styles.header}>
         <View style={styles.titleView}><Text style={styles.title}>{props.title}</Text></View>
         <View style={styles.dateView}><Text style={styles.date}>{(props.taskOrNot) ? "Deadline:" : "Date:"}   {props.date.substring(0, 2)}/{props.date.substring(2, 4)}/{props.date.substring(4, 8)}</Text></View>

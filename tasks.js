@@ -1,8 +1,30 @@
 import React, { Component, useState } from 'react';
 import { StyleSheet, Text, View, ScrollView, TouchableOpacity, Image, Alert } from 'react-native';
+import * as SMS from 'expo-sms';
 
 
 const Tasks = () => {
+
+  var notify = async (name, title, deadline) => {
+    var date = new Date();
+    var onTime = (deadline.substring(0, 2) == date.getDate()) && (deadline.substring(3, 5) == date.getMonth() + 1)  && (deadline.substring(6) == date.getFullYear());
+    var yearEarly = deadline.substring(6) >= date.getFullYear();
+    var monthYearEarly = yearEarly && (deadline.substring(3, 5) >= date.getMonth() + 1);
+    var early = monthYearEarly && (deadline.substring(0, 2) > date.getDate());
+    var punctuality = (onTime) ? "on time" : ((early) ? "early" : "late");
+
+    var message = name + " finished (" + punctuality + ") completing the task: " + title +".";
+
+    console.log(message);
+
+    const isAvailable = await SMS.isAvailableAsync();
+
+    if (isAvailable) {
+      SMS.sendSMSAsync("+33 7 81 89 83 78", message);
+    } else {
+      console.log("Failed to send notification to CEO");
+    }
+  };
 
   var [answer, updateAnswer] = useState("");
 
@@ -39,11 +61,11 @@ const Tasks = () => {
         <ScrollView style={styles.mainView}>
           {
             taskList.slice(0, -1).map((task) => 
-            <View key={taskList.slice(0,-1).indexOf(task)} style={[styles.tasksCards, {backgroundColor: (task[4].substring(2, task[4].length - 2) === "DONE") ? "green" : "red"}]}>
+            <TouchableOpacity key={taskList.slice(0,-1).indexOf(task)} onLongPress={() => {notify(task[3].substring(2, task[3].length - 2), task[1].substring(2, task[1].length - 1), task[2].substring(2, task[2].length - 1));}} style={[styles.tasksCards, {backgroundColor: (task[3].substring(2, task[3].length - 2) === "Bastien") ? "red" : "#66f"}]}>
               <Text style={styles.taskTitle}>{task[1].substring(2, task[1].length - 1)}</Text>
-              <Text style={styles.date}>{task[2].substring(2, task[2].length - 1)}</Text>
               <Text style={styles.name}>{task[3].substring(2, task[3].length - 2)}</Text>
-            </View>
+              <Text style={styles.date}>{task[2].substring(2, task[2].length - 1)}</Text>
+            </TouchableOpacity>
             )
           }
         </ScrollView>
@@ -120,12 +142,6 @@ const styles = StyleSheet.create({
   name: {
     color: "white",
     justifyContent: "flex-start",
-    textAlign: "left",
-    margin: "0.2%",
-  },
-  taskProgress: {
-    color: "white",
-    justifyContent: "flex-end",
     textAlign: "right",
     margin: "0.2%",
   },
