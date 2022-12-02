@@ -2,14 +2,6 @@ import React, { Component, useState } from 'react';
 import { StyleSheet, Text, View, ScrollView, TouchableOpacity, Image } from 'react-native';
 import Event from './event';
 
-var calendarEvent = [
-  ["Dépôt des tables des matières pour les rapports \"Etat de l'art\" et les grandes lignes de la simulation", "06122022", true],
-  ["Presentation practice - Tell a Photo Story. 06/12/2022", "06122022", true],
-  ["Livrable final : Boîte de dépôt (date limite 15 décembre 2022)", "15122022", true],
-  ["QCM Formation Managériale 2 décembre (groupe après-midi)", "02122022", true]
-];
-
-calendarEvent = calendarEvent.sort(function(a, b){return parseInt(a[1].substring(4) + a[1].substring(2, 5) + a[1].substring(0, 3)) - parseInt(b[1].substring(4) + b[1].substring(2, 5) + b[1].substring(0, 3))});
 
 const Calendar = () => {
 
@@ -36,6 +28,9 @@ const Calendar = () => {
     eventList[i] = eventList[i].split(",");
   }
 
+  var calendarEvent = eventList;
+  calendarEvent = calendarEvent.sort(function(a, b){return parseInt(a[1].substring(4) + a[1].substring(2, 5) + a[1].substring(0, 3)) - parseInt(b[1].substring(4) + b[1].substring(2, 5) + b[1].substring(0, 3))});
+
   request.open('GET', eventContentPath);
   request.send();
 
@@ -48,7 +43,7 @@ const Calendar = () => {
 
       <View style={styles.mainView}>
         <ScrollView style={styles.mainScrollView}>
-          {eventList.map((event) => <Event taskOrNot={calendarEvent[calendarEvent.indexOf(event)][2]} key={calendarEvent.indexOf(event)} title={calendarEvent[calendarEvent.indexOf(event)][0]} date={calendarEvent[calendarEvent.indexOf(event)][1]}/>)}
+          {calendarEvent.map((event) => <Event taskOrNot={calendarEvent[calendarEvent.indexOf(event)][2]} key={calendarEvent.indexOf(event)} title={calendarEvent[calendarEvent.indexOf(event)][0]} date={calendarEvent[calendarEvent.indexOf(event)][1]}/>)}
         </ScrollView>
       </View>
 
