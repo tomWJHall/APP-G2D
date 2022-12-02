@@ -26,7 +26,8 @@ const Calendar = () => {
 
   for (let i = 0; i < eventList.length; i++) {
     eventList[i] = eventList[i].split(", ");
-    eventList[i][2] = (eventList[i][2]);
+    eventList[i][1] = (typeof(eventList[i][1]) == "number") ? ((JSON.stringify(eventList[i][1]).length === 8) ? "" : "0") + JSON.stringify(eventList[i][1]) : ((JSON.stringify(parseInt(eventList[i][1])).length === 8) ? '' : '0') + JSON.stringify(parseInt(eventList[i][1]));
+    eventList[i][2] = (typeof(eventList[i][2]) == "string") ? JSON.parse(eventList[i][2]) : eventList[i][2];
   }
 
   var calendarEvent = eventList;
