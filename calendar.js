@@ -22,7 +22,7 @@ const Calendar = () => {
   };
   
   
-  var eventList = answer.split('\n');
+  var eventList = answer.split("\n");
 
   for (let i = 0; i < eventList.length; i++) {
     eventList[i] = eventList[i].split(", ");
