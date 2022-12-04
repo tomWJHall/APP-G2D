@@ -23,7 +23,7 @@ const Dash = () => {
 
     console.log(textOutput);
     
-    var beginDate = new Date("09/11/2022");
+    var beginDate = new Date("10/02/2022");
     var beginning = beginDate.getTime();
     var date = new Date();
     var now = date.getTime();
