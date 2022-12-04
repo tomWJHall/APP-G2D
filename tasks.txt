@@ -1,3 +1,4 @@
-[001, "Update Website frontend", "12/12/2022", "Tom"]
-[002, "Check advancement of the database", "25/12/2022", "Bastien"]
-[003, "Update design for the login page", "01/12/2022", "Arno"]
+[001, "Créer la page 'Mes Données' avec une nouvelle navbar", "08/12/2022", "Tom"]
+[004, "Intégrer la map avec possibilité d'ajouter plusieurs pins", "08/12/2022", "Tom"]
+[002, "Former l'équipe au PHP et SQL", "09/12/2022", "Bastien"]
+[003, "Mettre à jour les header dans les page s'inscrire et se connecter", "12/12/2022", "Arno"]
