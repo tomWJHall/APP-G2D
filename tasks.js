@@ -13,7 +13,7 @@ const Tasks = () => {
     var early = monthYearEarly && (deadline.substring(0, 2) > date.getDate());
     var punctuality = (onTime) ? "on time" : ((early) ? "early" : "late");
 
-    var message = name.substring(0, name.length - 1) + " finished (" + punctuality + ") completing the task: " + title +".";
+    var message = "I finished (" + punctuality + ") completing the task: " + title +".";
 
     console.log(message);
 
@@ -61,7 +61,7 @@ const Tasks = () => {
         <ScrollView style={styles.mainView}>
           {
             taskList.slice(0, -1).sort(function(a, b){return parseInt(a[2].substring(6) + a[2].substring(3, 5) + a[2].substring(0, 2)) - parseInt(b[2].substring(6) + b[2].substring(3, 5) + b[2].substring(0, 2))}).map((task) => 
-            <TouchableOpacity key={task[0]} onLongPress={() => {notify(task[3].substring(2, task[3].length - 2), task[1].substring(2, task[1].length - 1), task[2].substring(2, task[2].length - 1));}} style={[styles.tasksCards, {backgroundColor: (task[3].substring(2, task[3].length - 2) === "Bastien") ? "red" : "#66f"}]}>
+            <TouchableOpacity key={task[0]} onLongPress={() => {notify(task[3].substring(2, task[3].length - 2), task[1].substring(2, task[1].length - 1), task[2].substring(2, task[2].length - 1));}} style={[styles.tasksCards, {backgroundColor: (task[3].substring(2, task[3].length - 3) === "Bastien") ? "#a0f" : "#66f"}]}>
               <Text style={styles.taskTitle}>{task[1].substring(2, task[1].length - 1)}</Text>
               <Text style={styles.name}>{task[3].substring(2, task[3].length - 3)}</Text>
               <Text style={styles.date}>{task[2].substring(2, task[2].length - 1)}</Text>
