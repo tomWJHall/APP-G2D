@@ -18,9 +18,9 @@ const App = () => {
       {pages[page]}
 
       <View style={styles.nav}>
-          <TouchableOpacity style={styles.navicon} onPress={() => {console.log("Tasks"); updatePage(page = 0)}}><Image style={styles.icons} source={require('./assets/icons/tasks.png')}/></TouchableOpacity>
-          <TouchableOpacity style={styles.navicon} onPress={() => {console.log("Calendar"); updatePage(page = 1)}}><Image style={styles.icons} source={require('./assets/icons/calendar.png')}/></TouchableOpacity>
-          <TouchableOpacity style={styles.navicon} onPress={() => {console.log("Dashboard"); updatePage(page = 2)}}><Image style={styles.icons} source={require('./assets/icons/dash.png')}/></TouchableOpacity>
+          <TouchableOpacity style={styles.navicon} onPress={() => {console.log("Tasks"); updatePage(page = 0)}}><Image style={styles.icons} source={require('./icons/tasks.png')}/></TouchableOpacity>
+          <TouchableOpacity style={styles.navicon} onPress={() => {console.log("Calendar"); updatePage(page = 1)}}><Image style={styles.icons} source={require('./icons/calendar.png')}/></TouchableOpacity>
+          <TouchableOpacity style={styles.navicon} onPress={() => {console.log("Dashboard"); updatePage(page = 2)}}><Image style={styles.icons} source={require('./icons/dash.png')}/></TouchableOpacity>
           <TouchableOpacity style={styles.navicon} onPress={() => {console.log("Moodle"); updatePage(page = 3)}}><Text style={styles.moodleicon}>m</Text></TouchableOpacity>
         </View>
       <StatusBar style="auto" />

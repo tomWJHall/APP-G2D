@@ -11,7 +11,7 @@ const Moodle = () => {
 
       <View style={styles.mainView}>
         <TouchableOpacity style={styles.moodleCard} onPress={() => Linking.openURL("https://moodle.isep.fr")}>
-          <Image source={require('./assets/icons/moodle.png')} style={styles.moodleImage}/>
+          <Image source={require('./icons/moodle.png')} style={styles.moodleImage}/>
           <Text style={styles.moodleTitle}>Moodle</Text>
         </TouchableOpacity>
       </View>
